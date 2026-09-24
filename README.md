@@ -37,6 +37,7 @@ portfolio/
 ├── js/
 │   └── script.js               # Lógica interactiva en Vanilla JavaScript modular
 ├── img/
+│   ├── alejandro-ponce.jpg     # Fotografía profesional de Alejandro Ponce
 │   └── projects/               # Ilustraciones y capturas de proyectos
 │       ├── cocinero-virtual.svg
 │       ├── sistema-alquiler.svg
