@@ -78,7 +78,7 @@
           <!-- Indicador de disponibilidad -->
           <div class="hero-status">
             <span class="status-dot"></span>
-            <span>Disponible para nuevos desafíos • Full Stack</span>
+            <span>Disponible para nuevos desafíos</span>
           </div>
 
           <span class="hero-greeting">Hola, soy</span>
@@ -114,7 +114,7 @@
           </div>
         </div>
 
-        <!-- Elemento Visual Interactivo del Hero: Foto a la izquierda + Ficha de Código -->
+        <!-- Elemento visual del Hero: foto de presentación -->
         <div class="hero-visual reveal">
           <!-- Foto Profesional de Alejandro Ponce (ubicada donde apunta la flecha) -->
           <div class="hero-photo-card" role="region" aria-label="Fotografía de Alejandro Ponce">
@@ -127,30 +127,35 @@
             </div>
           </div>
 
-          <!-- Componente de Código Interactivo (alejandro_profile.ts) conservado al 100% -->
-          <div class="hero-card" role="region" aria-label="Ficha de presentación de desarrollador">
-            <div class="card-header-bar">
-              <span class="header-dot red"></span>
-              <span class="header-dot yellow"></span>
-              <span class="header-dot green"></span>
-              <span class="header-title-code">alejandro_profile.ts</span>
-            </div>
-            <div class="hero-card-body">
-              <div class="code-line"><span class="code-keyword">const</span> <span class="code-var">developer</span> = {</div>
-              <div class="code-line">&nbsp;&nbsp;nombre: <span class="code-str">'Alejandro Ponce'</span>,</div>
-              <div class="code-line">&nbsp;&nbsp;rol: <span class="code-str">'Desarrollador Web Full Stack'</span>,</div>
-              <div class="code-line">&nbsp;&nbsp;ubicacion: <span class="code-str">'Argentina'</span>,</div>
-              <div class="code-line">&nbsp;&nbsp;areaActual: <span class="code-str">'Soporte al Usuario (Sistemas)'</span>,</div>
-              <div class="code-line">&nbsp;&nbsp;pasion: <span class="code-str">'Resolver problemas con código'</span>,</div>
-              <div class="code-line">&nbsp;&nbsp;aprendiendoSiempre: <span class="code-bool">true</span></div>
-              <div class="code-line">};</div>
-              <div class="card-tags-grid">
-                <span class="tag-badge"><i class="devicon-react-original"></i> React</span>
-                <span class="tag-badge"><i class="devicon-nextjs-plain"></i> Next.js</span>
-                <span class="tag-badge"><i class="devicon-python-plain"></i> Python</span>
-                <span class="tag-badge"><i class="devicon-nodejs-plain"></i> Node.js</span>
-                <span class="tag-badge"><i class="fa-solid fa-database"></i> SQL</span>
-              </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ficha de código ubicada debajo del hero -->
+    <section class="hero-card-section" aria-label="Ficha de presentación de desarrollador">
+      <div class="container">
+        <div class="hero-card reveal">
+          <div class="card-header-bar">
+            <span class="header-dot red"></span>
+            <span class="header-dot yellow"></span>
+            <span class="header-dot green"></span>
+            <span class="header-title-code">alejandro_profile.ts</span>
+          </div>
+          <div class="hero-card-body">
+            <div class="code-line"><span class="code-keyword">const</span> <span class="code-var">developer</span> = {</div>
+            <div class="code-line">&nbsp;&nbsp;nombre: <span class="code-str">'Alejandro Ponce'</span>,</div>
+            <div class="code-line">&nbsp;&nbsp;rol: <span class="code-str">'Desarrollador Web Full Stack'</span>,</div>
+            <div class="code-line">&nbsp;&nbsp;ubicacion: <span class="code-str">'Argentina'</span>,</div>
+            <div class="code-line">&nbsp;&nbsp;areaActual: <span class="code-str">'Soporte al Usuario (Sistemas)'</span>,</div>
+            <div class="code-line">&nbsp;&nbsp;pasion: <span class="code-str">'Resolver problemas con código'</span>,</div>
+            <div class="code-line">&nbsp;&nbsp;aprendiendoSiempre: <span class="code-bool">true</span></div>
+            <div class="code-line">};</div>
+            <div class="card-tags-grid">
+              <span class="tag-badge"><i class="devicon-react-original"></i> React</span>
+              <span class="tag-badge"><i class="devicon-nextjs-plain"></i> Next.js</span>
+              <span class="tag-badge"><i class="devicon-python-plain"></i> Python</span>
+              <span class="tag-badge"><i class="devicon-nodejs-plain"></i> Node.js</span>
+              <span class="tag-badge"><i class="fa-solid fa-database"></i> SQL</span>
             </div>
           </div>
         </div>
@@ -326,18 +331,17 @@
         </div>
 
         <div class="projects-grid">
-          <!-- Proyecto 1: Tu Cocinero Virtual -->
+          <!-- Proyecto 1: Estacionamiento -->
           <article class="project-card reveal">
             <div class="project-image-wrapper">
               <!-- REEMPLAZAR: Podés sustituir la imagen por una captura en img/projects/ -->
-              <img src="img/projects/cocinero-virtual.svg" alt="Captura del proyecto Tu Cocinero Virtual" class="project-img" loading="lazy">
+              <img src="img/projects/estacionamiento.png" alt="Captura del proyecto Estacionamiento" class="project-img" loading="lazy">
               <div class="project-overlay"></div>
             </div>
             <div class="project-content">
-              <h3 class="project-title">Tu Cocinero Virtual</h3>
+              <h3 class="project-title">Estacionamiento</h3>
               <p class="project-desc">
-                Aplicación web que utiliza inteligencia artificial para ayudar al usuario a generar recetas y recomendaciones de cocina personalizadas según ingredientes disponibles y preferencias nutricionales.
-              </p>
+                Proyecto en Next.js para ingresar vehículos, patente y ubicación. Conexión con backend Django, estilizado con Tailwind CSS y validación. Frontend desplegado en Vercel y backend con BD PostgreSQL en Railway. 🚀 </p>
               <div class="project-techs">
                 <span class="tag-badge">Next.js</span>
                 <span class="tag-badge">React</span>
@@ -346,11 +350,11 @@
               </div>
               <div class="project-actions">
                 <!-- REEMPLAZAR: Enlace a la demo online del proyecto -->
-                <a href="https://tu-cocinero-virtual.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                <a href="https://parking-frontend-theta.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
                   <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Ver proyecto
                 </a>
                 <!-- REEMPLAZAR: Enlace al repositorio de GitHub -->
-                <a href="https://github.com/tu-usuario/tu-cocinero-virtual" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+                <a href="https://github.com/alejandroponce00/parking_frontend" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
                   <i class="fa-brands fa-github" aria-hidden="true"></i> GitHub
                 </a>
               </div>
@@ -360,7 +364,7 @@
           <!-- Proyecto 2: Sistema de Alquiler -->
           <article class="project-card reveal">
             <div class="project-image-wrapper">
-              <img src="img/projects/sistema-alquiler.svg" alt="Captura del proyecto Sistema de Alquiler de Vehículos Urbanos" class="project-img" loading="lazy">
+              <img src="img/projects/alquiler.png" alt="Captura del proyecto Sistema de Alquiler de Vehículos Urbanos" class="project-img" loading="lazy">
               <div class="project-overlay"></div>
             </div>
             <div class="project-content">
@@ -376,11 +380,11 @@
               </div>
               <div class="project-actions">
                 <!-- REEMPLAZAR: Enlace a demo o documentación -->
-                <a href="https://github.com/tu-usuario/sistema-alquiler" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                <a href="https://github.com/alejandroponce00/Alquiler_de_Bicicletas_y_Monopatines/tree/main" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
                   <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Ver proyecto
                 </a>
                 <!-- REEMPLAZAR: Enlace al repositorio de GitHub -->
-                <a href="https://github.com/tu-usuario/sistema-alquiler" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+                <a href="https://github.com/alejandroponce00/Alquiler_de_Bicicletas_y_Monopatines" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
                   <i class="fa-brands fa-github" aria-hidden="true"></i> GitHub
                 </a>
               </div>
@@ -390,14 +394,13 @@
           <!-- Proyecto 3: Scrapiofertas -->
           <article class="project-card reveal">
             <div class="project-image-wrapper">
-              <img src="img/projects/scrapiofertas.svg" alt="Captura del proyecto Scrapiofertas" class="project-img" loading="lazy">
+              <img src="img/projects/deporteScan.png" alt="Captura del proyecto Scrapiofertas" class="project-img" loading="lazy">
               <div class="project-overlay"></div>
             </div>
             <div class="project-content">
               <h3 class="project-title">Scrapiofertas</h3>
               <p class="project-desc">
-                Aplicación para la extracción automatizada y consulta centralizada de ofertas de supermercados. Cuenta con workers programados de web scraping, sincronización en base de datos NoSQL y canalizaciones automáticas en GitHub Actions.
-              </p>
+                Aplicación web frontend desarrollada con Next.js que muestra ofertas de productos deportivos desde múltiples tiendas, conectada a un backend Node.js con base de datos en Cloud Firestore.Automatizado con github actions  </p>
               <div class="project-techs">
                 <span class="tag-badge">Node.js</span>
                 <span class="tag-badge">Express.js</span>
@@ -407,11 +410,11 @@
               </div>
               <div class="project-actions">
                 <!-- REEMPLAZAR: Enlace a la demo online del proyecto -->
-                <a href="https://scrapiofertas.web.app" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                <a href="https://scrap-ofertas-front.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
                   <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Ver proyecto
                 </a>
                 <!-- REEMPLAZAR: Enlace al repositorio de GitHub -->
-                <a href="https://github.com/tu-usuario/scrapiofertas" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+                <a href="https://github.com/alejandroponce00/scrap_ofertas_front" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
                   <i class="fa-brands fa-github" aria-hidden="true"></i> GitHub
                 </a>
               </div>
