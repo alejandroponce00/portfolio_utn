@@ -159,10 +159,6 @@ function initContactForm() {
   const nombreInput = document.getElementById('nombre');
   const emailInput = document.getElementById('email');
   const mensajeInput = document.getElementById('mensaje');
-  const submitBtn = document.getElementById('submit-btn');
-  const successAlert = document.getElementById('form-success-alert');
-  const errorAlert = document.getElementById('form-error-alert');
-
   // Regex para validación de email estándar
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
@@ -194,9 +190,7 @@ function initContactForm() {
     });
   });
 
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
+  form.addEventListener('submit', (e) => {
     const isNombreValid = validateField(
       nombreInput,
       nombreInput.value.trim().length >= 2,
@@ -215,46 +209,8 @@ function initContactForm() {
       'Por favor, ingresá un mensaje detallado (mínimo 10 caracteres).'
     );
 
-    if (!isNombreValid || !isEmailValid || !isMensajeValid) return;
-
-    const originalBtnText = submitBtn.innerHTML;
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin" aria-hidden="true"></i> Enviando...';
-    if (successAlert) successAlert.classList.remove('visible');
-    if (errorAlert) errorAlert.classList.remove('visible');
-
-    try {
-      const formData = new FormData(form);
-      const response = await fetch(form.action, {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(Object.fromEntries(formData.entries()))
-      });
-      const result = await response.json();
-
-      if (!response.ok || (result.success !== true && result.success !== 'true')) {
-        throw new Error('El servicio de correo no aceptó el mensaje.');
-      }
-
-      form.reset();
-      if (successAlert) {
-        successAlert.classList.add('visible');
-        successAlert.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }
-      setTimeout(() => {
-        if (successAlert) successAlert.classList.remove('visible');
-      }, 6000);
-    } catch (error) {
-      if (errorAlert) {
-        errorAlert.classList.add('visible');
-        errorAlert.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }
-    } finally {
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = originalBtnText;
+    if (!isNombreValid || !isEmailValid || !isMensajeValid) {
+      e.preventDefault();
     }
   });
 }
