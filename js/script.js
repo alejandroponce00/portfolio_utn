@@ -161,6 +161,7 @@ function initContactForm() {
   const mensajeInput = document.getElementById('mensaje');
   const submitBtn = document.getElementById('submit-btn');
   const successAlert = document.getElementById('form-success-alert');
+  const errorAlert = document.getElementById('form-error-alert');
 
   // Regex para validación de email estándar
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -193,7 +194,7 @@ function initContactForm() {
     });
   });
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const isNombreValid = validateField(
@@ -214,34 +215,46 @@ function initContactForm() {
       'Por favor, ingresá un mensaje detallado (mínimo 10 caracteres).'
     );
 
-    // Si todos los campos son válidos
-    if (isNombreValid && isEmailValid && isMensajeValid) {
-      // Estado de envío visual
-      const originalBtnText = submitBtn.innerHTML;
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Enviando...';
+    if (!isNombreValid || !isEmailValid || !isMensajeValid) return;
 
-      // Simulación de procesamiento asíncrono
+    const originalBtnText = submitBtn.innerHTML;
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin" aria-hidden="true"></i> Enviando...';
+    if (successAlert) successAlert.classList.remove('visible');
+    if (errorAlert) errorAlert.classList.remove('visible');
+
+    try {
+      const formData = new FormData(form);
+      const response = await fetch(form.action, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(Object.fromEntries(formData.entries()))
+      });
+      const result = await response.json();
+
+      if (!response.ok || (result.success !== true && result.success !== 'true')) {
+        throw new Error('El servicio de correo no aceptó el mensaje.');
+      }
+
+      form.reset();
+      if (successAlert) {
+        successAlert.classList.add('visible');
+        successAlert.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
       setTimeout(() => {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = originalBtnText;
-
-        // Mostrar notificación de éxito
-        if (successAlert) {
-          successAlert.classList.add('visible');
-          successAlert.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }
-
-        // Resetear formulario
-        form.reset();
-
-        // Ocultar mensaje de éxito luego de 6 segundos
-        setTimeout(() => {
-          if (successAlert) {
-            successAlert.classList.remove('visible');
-          }
-        }, 6000);
-      }, 900);
+        if (successAlert) successAlert.classList.remove('visible');
+      }, 6000);
+    } catch (error) {
+      if (errorAlert) {
+        errorAlert.classList.add('visible');
+        errorAlert.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalBtnText;
     }
   });
 }

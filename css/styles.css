@@ -1404,6 +1404,25 @@ button, input, textarea {
   animation: fadeIn 0.4s ease;
 }
 
+.form-alert-error {
+  display: none;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: var(--radius-md);
+  color: #f87171;
+  font-size: 0.92rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.form-alert-error.visible {
+  display: flex;
+  animation: fadeIn 0.4s ease;
+}
+
 /* --------------------------------------------------------------------------
    12. FOOTER
    -------------------------------------------------------------------------- */

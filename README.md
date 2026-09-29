@@ -16,7 +16,7 @@ Construido exclusivamente con estándares web modernos: **HTML5 semántico**, **
   - Menú hamburguesa accesible con bloqueo de scroll, soporte para tecla `Esc` y cierre automático al navegar.
   - *Scrollspy* que resalta la sección activa en la barra de navegación mientras el usuario se desplaza.
   - Animaciones suaves de aparición al hacer scroll (*Scroll Reveal*) mediante la API nativa de `IntersectionObserver`.
-  - Validación completa del formulario en el lado del cliente con avisos de error y estado visual de éxito.
+   - Validación del formulario y envío de mensajes a `alejandroponce00@gmail.com` mediante FormSubmit, con estados visuales de éxito y error.
   - Botón flotante para volver arriba (*Back to top*) con aparición condicionada por scroll.
   - Actualización automática del año de copyright en el pie de página.
 - **Accesibilidad y SEO:**
@@ -93,6 +93,9 @@ Dentro de `index.html`, buscá los comentarios señalados con `<!-- REEMPLAZAR: 
 ---
 
 ## 🌐 Guía para Publicar Gratis en Internet
+
+### Activar el formulario de contacto
+El formulario utiliza FormSubmit para enviar los mensajes a `alejandroponce00@gmail.com`. Después del primer envío desde el sitio publicado, abrí el correo de activación que te enviará FormSubmit y confirmá la dirección. Los envíos posteriores llegarán a esa casilla.
 
 ### En GitHub Pages:
 1. Creá un repositorio en GitHub (por ejemplo, `portfolio` o `tu-usuario.github.io`).
